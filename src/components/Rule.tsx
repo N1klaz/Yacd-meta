@@ -29,10 +29,15 @@ function Rule({ type, payload, proxy, id, size }: Props) {
   return (
     <div className={s0.rule}>
       <div className={s0.left}>{id}</div>
-      <div className={s0.content}>
+      <div>
         <div className={s0.payloadAndSize}>
           <div className={s0.payload}>{payload}</div>
-          {type === 'GeoSite' && <div className={s0.size}> : {size}</div>}
+          {(type === 'GeoSite' || type === 'GeoIP') && (
+            <div style={{ margin: '0 3em' }} className={s0.size}>
+              {' '}
+              size: {size}
+            </div>
+          )}
         </div>
         <div className={s0.a}>
           <div className={s0.type}>{type}</div>
